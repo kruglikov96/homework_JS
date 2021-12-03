@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style/style.css">
   <title>Document</title>
 </head>
 <body>
@@ -25,6 +26,17 @@
 
   <div class="todoList">
     <div id="todo" style = "border: 2px solid red; padding: 1rem; width: 385px"></div>
+  </div>
+
+  <div class="wrapper">
+    <div class="modal-wrapper">
+      <div class="modal">
+        <button class="roundButton" id ="closeButton">X</button>
+        <input type="text" id = "inputTitleModal" placeholder="Title:">
+        <input type="text" id = "inputDescriptionModal" placeholder="Description:">
+        <button id="submitButton">Submit</button>
+      </div>
+    </div>
   </div>
 
     <script src="JS/script.js"></script>

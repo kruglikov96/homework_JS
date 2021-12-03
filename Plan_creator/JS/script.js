@@ -62,6 +62,7 @@ const drawList = (dataType) => {
 }
 
 const init = () =>{
+  const modalWrapper = document.querySelector(".wrapper");
   const todoList = document.querySelector(".todoList");
   const inputTitle = document.querySelector("#inputTitle");
   const inputDescription = document.querySelector("#inputDescription");
@@ -92,11 +93,63 @@ const init = () =>{
     const title = card.querySelector(".title").textContent;
     const description = card.querySelector(".description").textContent;
     const obj = { title, description };
-    data.todo = data.todo.filter(
-      (el) => el.title !== obj.title && el.description !== obj.description
-    );
+
+    // data.todo = data.todo.filter(
+    //   (el) => el.title !== obj.title && el.description !== obj.description
+    // );
+
+    data.todo.forEach((item, index) => {
+      if (item.title === title && item.description === description){
+        data.todo.splice(index, 1);
+      }
+    })
+
     drawList(data.todo);
   };
+
+
+const copyValueInModal = (event) => {
+        const cardEdit = event.target.closest(".card");
+        const titleEdit = cardEdit.querySelector(".title").textContent;
+        const descriptionEdit =
+          cardEdit.querySelector(".description").textContent;
+
+        const inputTitleModal = document.querySelector("#inputTitleModal");
+        inputTitleModal.value = titleEdit;
+
+        const inputDescriptionModal = document.querySelector("#inputDescriptionModal");
+        inputDescriptionModal.value = descriptionEdit;
+
+        return { titleEdit, descriptionEdit };
+  }
+
+  const editToDo = (event) => {
+    closeModal(event);
+    const { titleEdit, descriptionEdit } = copyValueInModal(event);
+
+    const submitButton = document.querySelector("#submitButton");
+    submitButton.addEventListener("click", (event) => {
+      data.todo.forEach((item, index) => {
+        if (item.title === titleEdit && item.description === descriptionEdit) {
+          data.todo.splice(index, 1, {
+            title: inputTitleModal.value,
+            description: inputDescriptionModal.value,
+          });
+        }
+      });
+      modalWrapper.style.display = "none";
+      drawList(data.todo);
+    });
+  }
+
+  const closeModal = (event) => {
+    modalWrapper.style.display = "block";
+    const closeButton = document.querySelector("#closeButton");
+    closeButton.addEventListener("click", () => {
+      modalWrapper.style.display = "none";
+    });
+  }
+
 
   todoList.addEventListener("click", (event) => {
     switch (event.target.classList.value) {
@@ -104,6 +157,7 @@ const init = () =>{
         deleteToDo(event);
         break;
       case "editButton":
+        editToDo (event);
         break;
       default:
         break;
@@ -133,5 +187,19 @@ init()
 
 
 
+// const submitButton = document.querySelector("#submitButton");
+// submitButton.addEventListener("click", (event) => {
+//   const cardModal = event.target.closest(".card");
+//   const inputTitleModal =
+//     cardModal.querySelector("#inputTitleModal").textContent;
+//   const inputDescriptionModal = cardModal.querySelector(
+//     "#inputDescriptionModal"
+//   ).textContent;
+//   data.todo.forEach((item, index) => {
+//     item.title = inputTitleModal;
+//     item.description = inputDescriptionModal;
+//   });
 
+//   modalWrapper.style.display = "none";
+// });
 
