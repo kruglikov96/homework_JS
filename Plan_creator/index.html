@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style/style.css">
-  <title>Document</title>
-</head>
-<body>
-  <!-- <div class="card" style = "width:200px; border:3px solid; padding: 1rem;">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style/style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- <div class="card" style = "width:200px; border:3px solid; padding: 1rem;">
     <p class="text">Текст</p>
     <button id = "deleteBtn" style = "padding: 1rem 1.5rem">Delete</button>
     <button id = "editBtn" style = "padding: 1rem 1.5rem">Edit</button>
@@ -18,27 +18,46 @@
 
   <p class="innerExample">lesson 4</p> -->
 
-  <form action="" style="margin-bottom: 2rem;" id="form">
-    <input type="text" id="inputTitle" placeholder="Title:">
-    <input type="text" id="inputDescription" placeholder="Description:">
-    <button class="btn" id = "addCardButton">Add card</button>
-  </form>
+    <form action="" style="margin-bottom: 2rem" id="form">
+      <input type="text" id="inputTitle" placeholder="Title:" />
+      <input type="text" id="inputDescription" placeholder="Description:" />
+      <button class="btn" id="addCardButton">Add card</button>
+    </form>
 
-  <div class="todoList">
-    <div id="todo" style = "border: 2px solid red; padding: 1rem; width: 385px"></div>
-  </div>
+    <div class="containerOfLists">
+      <div class="todoList list" id="toDoListSection">
+        <h1 class="nameList">To do</h1>
+        <div id="todo"></div>
+      </div>
 
-  <div class="wrapper">
-    <div class="modal-wrapper">
-      <div class="modal">
-        <button class="roundButton" id ="closeButton">X</button>
-        <input type="text" id = "inputTitleModal" placeholder="Title:">
-        <input type="text" id = "inputDescriptionModal" placeholder="Description:">
-        <button id="submitButton">Submit</button>
+      <div class="inProgressList list" id="inProgressListSection">
+        <h1 class="nameList">In progress</h1>
+        <div id="inProgress"></div>
+      </div>
+
+      <div class="isFinishedList list" id="isFinishedListSection">
+        <h1 class="nameList">Is finished</h1>
+        <div id="isFinished"></div>
+      </div>
+
+      <div class="deletedList list" id = "deletedListSection">
+        <h1 class="nameList">Deleted</h1>
+        <div id="isDeleted"></div>
+        <button class="clearAllBtn">clear all</button>
       </div>
     </div>
-  </div>
+
+    <div class="wrapper">
+      <div class="modal-wrapper">
+        <div class="modal">
+          <button class="roundButton" id="closeButton">X</button>
+          <input type="text" id="inputTitleModal" placeholder="Title:" />
+          <input type="text" id="inputDescriptionModal" placeholder="Description:" />
+          <button id="submitButton">Submit</button>
+        </div>
+      </div>
+    </div>
 
     <script src="JS/script.js"></script>
-</body>
+  </body>
 </html>

@@ -3,6 +3,11 @@
   display: none;
 }
 
+.list{
+  border: 2px solid red;
+  padding: 1rem;
+  width: 385px;
+}
 
 .modal-wrapper{
   width: 100%;
@@ -26,6 +31,7 @@
   border: 3px solid purple;
   border-radius: 5px;
   padding: 1rem;
+  background-color: brown;
 }
 
 .roundButton {
@@ -36,4 +42,22 @@
   position: absolute;
   padding: 0.5rem;
   border-radius: 50%;
+}
+
+.containerOfLists {
+  display: flex;
+  column-gap: 5px;
+  align-items: flex-start;
+
+}
+
+.nameList{
+  text-align: center;
+  font-size: medium;
+}
+
+.clearAllBtn {
+  display: block;
+  margin: 10px auto 0 auto;
+  
 }
